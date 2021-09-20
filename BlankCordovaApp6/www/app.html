@@ -1,0 +1,119 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <!--<script src="https://kit.fontawesome.com/5dba112e4a.js" crossorigin="anonymous"></script>-->
+    <link href="css/fontawesome-free-5.15.3-web/css/all.css" rel="stylesheet"> <!--fontawesome libs-->
+    <script defer src="css/fontawesome-free-5.15.3-web/js/all.js"></script> <!--fontawesome libs-->
+
+    <link rel="stylesheet" type="text/css" href="css/app.css">
+    <title>SmartCycle App</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+</head>
+<body scroll="no" style="overflow: hidden" , "margin: 0;">
+    <div id="deviceready"></div>
+    <svg id="fader"></svg>
+    <div class="app">
+        <div class="page" id="homestyle">
+            <h1 class="header" id="homehead">SafeCycle Home</h1>
+            <button id="lightbutt"><i class="far fa-lightbulb fa-3x"></i></button> <!--turns on the lights through bluetooth-->
+            <button id="bluebutt"><i class="fab fa-bluetooth-b fa-3x"></i></button> <!--connect to bluetooth-->
+            <button id="bell"><i class="far fa-bell fa-3x"></i></button> <!--ring the bell-->
+            <button id="power"><i class="fas fa-power-off fa-3x"></i></button> <!--power off the arduino-->
+            <button id="refreshbutt"><i class="fas fa-sync-alt fa-3x"></i></button> <!--reload the app-->
+            <div id="terminal">Terminal Log Entires Start<br></div> <!--Terminal block to display JS console messages-->
+        </div>
+
+        <div class="page" id="GPSstyle">
+            <h1 class="header" id="GPShead">SafeCycle GPS</h1>          
+            <form class="navigation">
+                <label id="desthead">Please enter a destination</label>
+                <input id="destination" type="text"/>
+                <input id="geo" type="submit" value="Take Me There!" onclick="takeMeThere();" />
+            </form>
+            <script>
+                var onSuccess = function (position) {
+                    position.coords.latitude 
+                      position.coords.longitude
+                };
+
+                // onError Callback receives a PositionError object
+                //
+                function onError(error) {
+                    alert('code: ' + error.code + '\n' +
+                        'message: ' + error.message + '\n');
+                }
+                navigator.geolocation.getCurrentPosition(onSuccess, onError);
+
+                function takeMeThere() {
+                    var input = document.getElementById("destination").value;
+                    window.open('geo:0,0?q=' + input, '_system');
+                }
+
+                //ghost text code
+                var txtContent = document.getElementById("destination");
+                var defaultText = "Pizza, Coffee, 123 Apple Bottom St.";
+                txtContent.value = defaultText;
+                txtContent.style.color = "#CCC";
+                txtContent.onfocus = function () {
+                    if (this.value == defaultText) {
+                        this.value = "";
+                        this.style.color = "#000";
+                    }
+                }
+                txtContent.onblur = function () {
+                    if (this.value == "") {
+                        this.value = defaultText;
+                        this.style.color = "#CCC";
+                    }
+                }
+            </script>
+        </div>
+
+        <div class="page" id="alarmstyle">
+            <h1 class="header" id="alarmhead">SafeCycle Alarm</h1>
+            <div id="alarmcontainer">
+                <button type="button" id="disarmed"><i class="fas fa-volume-mute fa-3x"></i></button>
+                <button type="button" id="armed"><i class="fas fa-volume-up fa-3x"></i></button>
+            </div>
+            <p id="notifhead">Text Notifications</p>
+            <label class="switch">
+                <input type="checkbox">
+                <span class="slider round"></span>
+            </label>
+        </div>
+
+        <div class="page" id="speedstyle">
+            <h1 class="header" id="speedhead">SafeCycle Speedometer</h1>
+            <div id="gauge"></div>
+            <!--<input id ="demoval" type="range" min="0" max="30" value="15"
+                   oninput="g.refresh(this.value)" onchange="g.refresh(this.value)">-->.
+            <p id="avespeedHead">Average Speed</p>
+            <div id="averageCounter">0.00</div>
+            <p id="k">km/h</p>
+        </div>
+
+
+        <!-------PAGE TABS------->
+        <div class="tab">
+            <a href="#GPShead" class="button" id="gpsbutt">GPS</a>
+            <a href="#alarmhead" class="button" id="alarmbutt">Alarm</a>
+            <a href="#homehead" class="button" id="homebutt">HOME</a>
+            <a href="#speedhead" class="button" id="speedbutt">Speed</a>
+        </div>
+    </div>
+    <script type="text/javascript" src="cordova.js"></script>
+    <script type="text/javascript" src="scripts/platformOverrides.js"></script>
+    <script src="scripts/bluetooth.js"></script>
+    <script src="scripts/app.js"></script>
+
+    <script type="text/javascript" src="scripts/es6-promise.min.js"></script>
+    <script type="text/javascript" src="scripts/uuids.js"></script>
+    <script type="text/javascript" src="scripts/StringView.js"></script>
+    <script type="text/javascript" src="scripts/justgage.js"></script>
+    <script type="text/javascript" src="scripts/raphael-2.1.4.min.js"></script>
+    <script src="scripts/speed.js"></script>
+
+
+</body>
+</html>

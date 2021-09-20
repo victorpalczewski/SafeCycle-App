@@ -1,0 +1,361 @@
+﻿* {
+    margin: 0px;
+    padding: 0px;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #E5FAFC;
+}
+
+.header {
+    text-align: center;
+    padding: 20px 0px 0px 0px;
+}
+/*TRANSITION FADE EFFECT*/
+#fader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 999999;
+    pointer-events: none;
+    background: white;
+    animation-duration: 700ms;
+    animation-timing-function: ease-in-out;
+}
+
+@keyframes fade-out {
+    from {
+        opacity: 1
+    }
+
+    to {
+        opacity: 0
+    }
+}
+
+@keyframes fade-in {
+    from {
+        opacity: 0
+    }
+
+    to {
+        opacity: 1
+    }
+}
+
+#fader.fade-out {
+    opacity: 0;
+    animation-name: fade-out;
+}
+
+#fader.fade-in {
+    opacity: 1;
+    animation-name: fade-in;
+}
+
+/*PAGE TAB STYLE*/
+.tab {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    display: table;
+    table-layout: fixed;
+    float: left;
+    position: fixed;
+    bottom: 0px;
+    left: 0px;
+    width: 100%;
+}
+
+.tab .button {
+    background-color: #000000;
+    border: none;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    text-transform: uppercase;
+    display: table-cell;
+    border-right: 1px solid white;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.tab #speedbutt {
+    border: none;
+}
+
+.page {
+    height: 700px;
+}
+
+/*GPS STYLE*/
+#GPSstyle {
+}
+
+/*#GPShead {
+    visibility: hidden;
+}*/
+.navigation {
+    margin: 50px auto 0px auto;
+    width: 80%;
+}
+#desthead {
+    display: block;
+    text-align: center;
+}
+input[type=text] {
+    font-size: 14px;
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border-radius: 4px;
+}
+
+#geo {
+    font-size: 20px;
+    font-weight: bold;
+    display: inline-block;
+    border-radius: 10px;
+    height: 60px;
+    width: 80%;
+    margin: 25px 25px 25px 25px;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+    background-color: #2948ff;
+    border: none;
+}
+#geo:active {
+    background-color: #2a4d96
+}
+    /*ALARM STYLE*/
+#alarmstyle {
+}
+
+#disarmed, #armed {
+    text-align: center;
+    display: inline-block;
+    border-radius: 12px;
+    width: 40%;
+    height: 80px;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+    border: none;
+}
+
+#armed {
+    background-color: #32CD32;
+    margin: 50px 20px 50px 10px;
+    opacity: 0.3;
+}
+
+#disarmed {
+    background-color: #DC143C;
+    margin: 50px 10px 50px 20px;
+}
+
+#volumehead { /*alarm volume control slider header*/
+    font-size: 20px;
+    font-weight: bold;
+    margin: 10px 0px 10px 20px;
+}
+
+
+
+#notifhead {
+    font-size: 20px;
+    font-weight: bold;
+    margin: 10px 0px 10px 20px;
+    float: left;
+}
+
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
+    margin-left: 60px;
+}
+
+    /* Hide default HTML checkbox */
+    .switch input {
+        opacity: 0;
+        width: 0;
+        height: 0;
+    }
+
+/* The slider */
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #2196F3;
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+
+    .slider:before {
+        position: absolute;
+        content: "";
+        height: 26px;
+        width: 26px;
+        left: 4px;
+        bottom: 4px;
+        background-color: lightgrey;
+        -webkit-transition: .4s;
+        transition: .4s;
+    }
+
+input:checked + .slider {
+    background-color: white;
+}
+
+input:focus + .slider {
+    box-shadow: 0 0 1px white;
+}
+
+input:checked + .slider:before {
+    -webkit-transform: translateX(26px);
+    -ms-transform: translateX(26px);
+    transform: translateX(26px);
+}
+/* Rounded sliders */
+.slider.round {
+    border-radius: 34px;
+}
+
+    .slider.round:before {
+        border-radius: 50%;
+    }
+/*HOME PAGE STYLE*/
+#homestyle {
+    margin: 0;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    outline: 0;
+    vertical-align: baseline;
+}
+
+#bluebutt {
+    display: inline-block;
+    border-radius: 50%;
+    height: 60px;
+    width: 60px;
+    margin: 25px 0px 25px 0px;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+    background-color: #1d53d3;
+    border: none;
+}
+
+    #bluebutt:active {
+        background-color: #092f97;
+    }
+
+#lightbutt {
+    display: inline-block;
+    border-radius: 50%;
+    height: 90px;
+    width: 90px;
+    margin: 25px 25px 0px 30px;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+    background-color: #ffe200;
+    border: none;
+}
+
+    #lightbutt:active {
+        background-color: #948400;
+    }
+
+#refreshbutt {
+    display: inline-block;
+    border-radius: 50%;
+    height: 60px;
+    width: 60px;
+    margin: 25px 20% 0px 50px;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+    background-color: #ffffff;
+    border: none;
+}
+
+    #refreshbutt:active {
+        background-color: #8a8a8a;
+    }
+
+#bell {
+    display: inline-block;
+    border-radius: 50%;
+    height: 90px;
+    width: 90px;
+    margin: 25px 25px 0px 25px;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+    background-color: #e37e14;
+    border: none;
+}
+    #bell:active {
+        background-color: #8a8a8a;
+    }
+
+#power {
+    display: inline-block;
+    border-radius: 50%;
+    height: 60px;
+    width: 60px;
+    margin: 25px 40px 0px 20%;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+    background-color: #d10303;
+    border: none;
+}
+    #power:active {
+        background-color: #8a8a8a;
+    }
+
+#terminal {
+    font-size: 16px;
+    background: white;
+    height: 25%;
+    overflow: auto;
+    display: flex;
+    flex-direction: column-reverse;
+    border: 2px solid black;
+    border-radius: 6px;
+    margin: 25px auto auto auto;
+    width: 80%;
+    padding: 10px;
+}
+
+/*SPEEDOMETER STYLE*/
+#speedstyle {
+}
+
+#speedhead {
+    visibility: hidden;
+    margin-bottom: 0px;
+    font-size: 1px;
+}
+
+#gauge {
+    height: 50%;
+    width: 90%;
+    margin: 0px auto 0px auto;
+}
+#avespeedHead {
+    display: block;
+    font-size: 20px;
+    font-weight: 4px;
+    text-align: center;
+}
+#averageCounter {
+    font-size: 40px;
+    display: block;
+    font-weight: 8px;
+    text-align: center;
+}
+#k {
+    display: block;
+    text-align: center;
+}
